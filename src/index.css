@@ -1,0 +1,71 @@
+/* General styles */
+body {
+  background-color: #121212;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Drum Machine Container */
+#drum-machine {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Display Box */
+#display {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: #333;
+  border-radius: 5px;
+  box-shadow: inset 0px 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Drum Pads */
+.drum-pad {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s;
+}
+
+/* Button Colors */
+.btn-dark { background-color: #444; }
+.btn-primary { background-color: #007bff; }
+.btn-danger { background-color: #dc3545; }
+
+/* Hover Effect */
+.drum-pad:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Active (Pressed) Effect */
+.drum-pad:active {
+  transform: scale(0.95);
+  background-color: #ffcc00;
+  color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .drum-pad {
+      width: 60px;
+      height: 60px;
+      font-size: 18px;
+  }
+}
