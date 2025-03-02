@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 
-const drumPads = [
+interface DrumPad {
+  key: string;
+  sound: string;
+  src: string;
+}
+
+const drumPads: DrumPad[] = [
   { key: "Q", sound: "Heater 1", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" },
   { key: "W", sound: "Heater 2", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" },
   { key: "E", sound: "Heater 3", src: "https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" },
@@ -12,11 +18,11 @@ const drumPads = [
   { key: "C", sound: "Closed-HH", src: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" },
 ];
 
-const DrumMachine = () => {
-  const [display, setDisplay] = useState("Press a key");
+const DrumMachine: React.FC = () => {
+  const [display, setDisplay] = useState<string>("Press a key");
 
-  const playSound = (key, sound) => {
-    const audio = document.getElementById(key);
+  const playSound = (key: string, sound: string) => {
+    const audio = document.getElementById(key) as HTMLAudioElement | null;
     if (audio) {
       audio.currentTime = 0;
       audio.play();
@@ -24,7 +30,7 @@ const DrumMachine = () => {
     }
   };
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: KeyboardEvent) => {
     const pad = drumPads.find((pad) => pad.key === event.key.toUpperCase());
     if (pad) {
       playSound(pad.key, pad.sound);
